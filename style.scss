@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('./fonts/NotoSansArmenian-VariableFont_wdth\,wght.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+:root {
+    --font-main: 'Noto Sans', sans-serif;
+    --foni-guyn: #F2F2ED;
+    --tareri-guyn: #161616;
+    --black-color: #000000;
+    --footer-bg-color: #161616;
+    --footer-text-color: #F2F2ED;
+    --accent: #700014;
+}
+
+// container
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+// nav
+nav {
+    background-color: var(--foni-guyn);
+    justify-content: space-around;
+    align-items: center;
+    vertical-align: middle;
+
+    .nav-logo {
+        width: 300px;
+        display: flex;
+    }
+
+    .flex-box {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        vertical-align: middle;
+
+        .nav-menu {
+            ul {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+
+                // Submenu Styles
+                .has-submenu {
+                    position: relative;
+
+                    &:hover .submenu {
+                        display: block;
+                    }
+
+                    .submenu {
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        background-color: var(--footer-bg-color);
+                        padding: 10px 0;
+                        min-width: 150px;
+                        z-index: 10;
+                        transition: opacity 0.3s ease, transform 0.3s ease;
+                        opacity: 0;
+                        transform: translateY(-10px);
+
+                        li {
+                            a {
+
+                                padding: 10px 15px;
+                                color: var(--foni-guyn);
+                                display: flex;
+                                text-decoration: none;
+                                justify-content: flex-start;
+                                gap: 10px;
+
+                                align-items: center;
+                                transition: background-color 0.3s ease, color 0.3s ease, 0.5s;
+
+                                &:hover {
+                                    transition: 0.5s;
+                                    background-color: var(--accent);
+                                    color: #F2F2ED;
+                                }
+
+                                img {
+                                    width: 30px;
+                                    margin: 5px;
+                                    filter: brightness(0) invert(1);
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover .submenu {
+                        display: block;
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                a {
+                    display: inline-block;
+                    padding: 30px 0;
+                    font-size: 17px;
+                    color: var(--tareri-guyn);
+                    transition: color 0.3s ease, transform 0.2s ease;
+                    text-decoration: none;
+
+                    &:focus,
+                    &:hover {
+                        color: var(--accent);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+
+        .nav-button {
+            a {
+                background-color: var(--footer-bg-color);
+                padding: 10px 25px;
+                color: var(--foni-guyn);
+                border-radius: 20px;
+                transition: all 0.3s ease;
+                text-decoration: none;
+
+                &:focus,
+                &:hover {
+                    background-color: var(--accent);
+                    color: var(--foni-guyn);
+                    transform: scale(1.05);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+}
+
+// Header Styles
+header {
+    .container {
+        padding: 50px 10px;
+    }
+}
+
+// Footer Styles
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 40px 0;
+    transition: background-color 0.3s ease;
+
+    /* Footer-ի ֆոնի համար */
+    .foot-logo {
+        width: 300px;
+    }
+
+    .footer-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        transition: all 0.3s ease;
+
+        .foot-logo {
+            h3 {
+                font-size: 24px;
+                color: var(--footer-text-color);
+                transition: color 0.3s ease;
+            }
+        }
+
+        .foot-menu {
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                li a {
+                    text-decoration: none;
+                    color: var(--footer-text-color);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        text-decoration: underline;
+                        color: var(--foni-guyn);
+                        /* Նավիգացիայի գույն */
+                        transform: translateX(5px);
+                    }
+                }
+            }
+        }
+
+        .foot-contacts {
+
+            p,
+            a {
+                text-decoration: none;
+                color: var(--footer-text-color);
+                margin-bottom: 5px;
+                transition: color 0.3s ease;
+
+                img {
+                    width: 20px;
+                    margin: 5px;
+                    filter: brightness(0) invert(1);
+                }
+            }
+
+            a:hover {
+                text-decoration: underline;
+                color: var(--foni-guyn);
+            }
+        }
+    }
+}
+
+footer:hover {
+    background-color: var(--footer-bg-color);
+}
